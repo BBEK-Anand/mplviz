@@ -1,7 +1,3 @@
-Here's a basic **README.md** template for your `Viz` class package:
-
----
-
 # Viz - A Fluent API Wrapper for Matplotlib
 
 `Viz` is a simple, fluent API wrapper for `matplotlib` that makes it easier to create, customize, and manage plots in Python. With method chaining and reusable functions, `Viz` simplifies complex plotting workflows while still providing full control over `matplotlib`.
