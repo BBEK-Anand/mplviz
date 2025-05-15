@@ -1,18 +1,20 @@
 # Viz - A Fluent API Wrapper for Matplotlib
 
-`Viz` is a simple, fluent API wrapper for `matplotlib` that makes it easier to create, customize, and manage plots in Python. With method chaining and reusable functions, `Viz` simplifies complex plotting workflows while still providing full control over `matplotlib`.
+`Viz` is a user-friendly, fluent API wrapper for `matplotlib` designed to streamline the process of creating, customizing, and managing plots in Python. By supporting method chaining and reusable functions, `Viz` makes complex plotting workflows easier to handle, while still offering complete control over `matplotlib` functionalities.
 
 ---
 
 ## 📦 Installation
 
-You can install the `Viz` package using `pip` directly from PyPI (once published) or from the source.
+To install the `Viz` package, use `pip` from PyPI (once it's published) or from the source.
+
+### Install via PyPI:
 
 ```bash
 pip install mplviz
 ```
 
-Or to install from source:
+### Install from Source:
 
 ```bash
 git clone https://github.com/BBEK-Anand/mplviz.git
@@ -24,17 +26,17 @@ pip install .
 
 ## 🚀 Quick Start
 
-Here's an example of how to use `Viz` to create a simple plot.
+Here’s how you can use `Viz` to create a simple plot:
 
 ```python
 import matplotlib.pyplot as plt
-from viz import Viz
+from mplviz import Viz
 
 # Create a figure and axis
 fig, ax = plt.subplots()
 
 # Initialize Viz with the axis
-viz = Viz(ax,fig)
+viz = Viz(ax, fig)
 
 # Plot a line with customization
 viz.plot([1, 2, 3], [4, 5, 6], label='Line') \
@@ -44,19 +46,18 @@ viz.plot([1, 2, 3], [4, 5, 6], label='Line') \
    .legend() \
    .grid(True) \
    .show()
-
 ```
 
 ---
 
 ## 🌟 Key Features
 
-* **Chainable methods** for easy, readable, and customizable plot creation.
-* **Support for multiple plot types** including line, scatter, bar, and more.
-* **Grid and axis customization** for intuitive styling.
-* **Flexible subplots layout** for creating complex figure grids.
-* **Save and export plots** to image or PDF.
-* **Reusability and Extensibility** to define custom plot settings or styles.
+* **Method Chaining**: Easily create readable and customizable plots with fluent syntax.
+* **Support for Multiple Plot Types**: Create line, scatter, bar charts, and more.
+* **Grid and Axis Customization**: Customize axis labels, grid visibility, and other settings.
+* **Flexible Subplot Layout**: Seamlessly create grid-based layouts with subplots.
+* **Save and Export**: Save plots to images or PDFs.
+* **Reusability & Extensibility**: Define reusable styles and settings for plots.
 
 ---
 
@@ -65,16 +66,16 @@ viz.plot([1, 2, 3], [4, 5, 6], label='Line') \
 * **Line Plot**: `viz.plot()`
 * **Scatter Plot**: `viz.scatter()`
 * **Bar Chart**: `viz.bar()`
-* **Contouring**: `viz.contour()`
+* **Contour Plot**: `viz.contour()`
 * **Heatmaps/Images**: `viz.imshow()`
 * **Annotations**: `viz.annotate()`
-* **Grid/Axis Customization**: `viz.grid()`, `viz.set_xlim()`, `viz.set_ylim()`
+* **Axis Customization**: `viz.grid()`, `viz.set_xlim()`, `viz.set_ylim()`
 * **Subplots Layout**: `viz.add_subplot()`
-* **Multiple Y-axes**: `viz.twinx()`
+* **Multiple Y-Axes**: `viz.twinx()`
 
 ---
 
-## 🛠️ Methods Overview
+## 🛠️ Method Overview
 
 ### Basic Plotting
 
@@ -88,19 +89,19 @@ viz.plot([1, 2, 3], [4, 5, 6], label='Line') \
 * `viz.xlabel(text, **kwargs)` - Set the x-axis label.
 * `viz.ylabel(text, **kwargs)` - Set the y-axis label.
 * `viz.grid(flag=True, **kwargs)` - Toggle grid lines on or off.
-* `viz.legend(**kwargs)` - Show legend.
+* `viz.legend(**kwargs)` - Show the legend.
 
 ### Layout and Saving
 
 * `viz.show(clear=False)` - Display the plot in the notebook.
-* `viz.tight_layout(**kwargs)` - Adjust subplot layout to avoid overlap.
+* `viz.tight_layout(**kwargs)` - Adjust subplot layout to prevent overlap.
 * `viz.save(path, **kwargs)` - Save the plot to a file.
 
 ---
 
 ## 🔄 Combine Multiple Plots
 
-You can combine multiple `Viz` objects into a single figure with subplots.
+Combine multiple `Viz` objects into a single figure with subplots for side-by-side comparisons.
 
 ```python
 fig, axs = plt.subplots(2, 2, figsize=(10, 10))
@@ -118,7 +119,7 @@ combined_viz.show()
 
 ## ⚙️ Customization and Style
 
-You can apply custom styles using `plt.style`:
+You can apply predefined `matplotlib` styles using `plt.style` for quick and consistent styling:
 
 ```python
 viz.style('seaborn-darkgrid')
@@ -126,38 +127,32 @@ viz.style('seaborn-darkgrid')
 
 ---
 
-## 📝 Example Usage
-
-For detailed usage, check out the example notebooks and demos in the `examples/` folder.
-
----
-
 ## 🤝 Contributing
 
 1. Fork the repository.
-2. Create your branch (`git checkout -b feature-name`).
+2. Create a new branch (`git checkout -b feature-name`).
 3. Commit your changes (`git commit -am 'Add feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Create a new Pull Request.
+4. Push your branch (`git push origin feature-name`).
+5. Open a Pull Request.
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See the `LICENSE` file for more information.
 
 ---
 
 ## 🙋‍♂️ Questions?
 
-Feel free to open an issue or reach out to the repository maintainers. You can also contribute to the documentation or add more features to enhance this project.
+If you have any questions or issues, feel free to open an issue on the GitHub repository. You can also contribute by improving the documentation or adding new features!
 
 ---
 
 ## 📍 Future Enhancements
 
-* Adding interactive support with tools like `mplcursors` or `plotly`.
-* Improving figure layout and positioning for complex plots.
-* Export to more formats like SVG, LaTeX-friendly output, etc.
-* Automatic color mapping for scatter plots or heatmaps.
+* Adding interactive features with libraries like `mplcursors` or `plotly`.
+* Improving subplot layout and positioning for more complex figure structures.
+* Expanding export options (e.g., support for SVG, LaTeX-friendly outputs).
+* Automatic color-mapping for scatter plots or heatmaps.
 
