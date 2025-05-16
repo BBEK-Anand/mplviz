@@ -7,7 +7,7 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='BBEK-Anand',
-    url='https://github.com/BBEK-Anand/mlpviz',  
+    url='https://github.com/BBEK-Anand/mplviz',  
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
