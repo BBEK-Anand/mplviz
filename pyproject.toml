@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mplviz"
-version = "0.1.0"
+version = "0.2.3"
 description = "A fluent wrapper around matplotlib for easy, expressive visualizations"
 readme = "README.md"
 requires-python = ">=3.7"
@@ -38,7 +38,7 @@ Issues = "https://github.com/BBEK-Anand/mplviz/issues"
 [project.optional-dependencies]
 docs = [
   "sphinx",
-  "furo",
+  "sphinx_rtd_theme",
   "myst-parser"
 ]
 
