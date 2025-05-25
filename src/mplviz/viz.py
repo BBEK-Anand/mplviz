@@ -5,7 +5,7 @@ import numpy as np
 
 
 class Viz:
-    def __init__(self, ax, fig=None):
+    def __init__(self, ax=None, fig=None):
         """Initializes the Viz object with a given axis and optional figure.
 
         Parameters:
@@ -15,6 +15,8 @@ class Viz:
             The figure containing the axis (default is None, which means it uses ax.figure).
 
         """
+        if(ax==None):
+            fig, ax = plt.subplots()
         self.ax = ax
         self.fig = fig or ax.figure
 
