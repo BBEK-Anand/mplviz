@@ -5,15 +5,35 @@ import numpy as np
 
 
 class Viz:
-    def __init__(self, ax=None, fig=None):
-        """Initializes the Viz object with a given axis and optional figure.
 
-        Parameters:
+    """
+    Viz class for plotting on a matplotlib axis.
+
+    Parameters
+    ----------
+    ax : matplotlib.axes.Axes
+        The axis on which the plot will be drawn.
+    fig : matplotlib.figure.Figure, optional
+        The figure containing the axis. Defaults to None, in which case ax.figure is used.
+
+    Methods
+    -------
+    add_subplot(*args, **kwargs)
+        Adds a new subplot to the figure.
+    """
+
+
+    def __init__(self, ax=None, fig=None):
+        """
+        Initializes the Viz object with a given axis and optional figure.
+
+
+        Parameters
+        ----------
         ax : matplotlib.axes.Axes
             The axis on which the plot will be drawn.
         fig : matplotlib.figure.Figure, optional
             The figure containing the axis (default is None, which means it uses ax.figure).
-
         """
         if(ax==None):
             fig, ax = plt.subplots()
@@ -22,9 +42,11 @@ class Viz:
 
     def set_title(self, txt, **kwargs):     
         
-        """Sets the title of the plot.
+        """
+        Sets the title of the plot.
 
-        Parameters:
+        Parameters
+        ----------
         txt : str
             The title text.
         kwargs : dict, optional
@@ -34,18 +56,20 @@ class Viz:
             - color : str, optional (e.g., 'red', 'blue', etc.)
             - pad : float, optional (distance from the top of the axes)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.set_title(txt, **kwargs)
         return self
 
     def xlabel(self, txt, **kwargs):
-        """Sets the label for the x-axis.
+        """
+        Sets the label for the x-axis.
 
-        Parameters:
+        Parameters
+        ----------
         txt : str
             The label text for the x-axis.
         kwargs : dict, optional
@@ -54,18 +78,20 @@ class Viz:
             - fontweight : {'normal', 'bold', 'heavy', 'light', 'ultrabold', 'ultralight'}, optional
             - color : str, optional (e.g., 'red', 'blue', etc.)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.set_xlabel(txt, **kwargs)
         return self
 
     def ylabel(self, txt, **kwargs):
-        """Sets the label for the y-axis.
+        """
+        Sets the label for the y-axis.
 
-        Parameters:
+        Parameters
+        ---------
         txt : str
             The label text for the y-axis.
         kwargs : dict, optional
@@ -74,18 +100,20 @@ class Viz:
             - fontweight : {'normal', 'bold', 'heavy', 'light', 'ultrabold', 'ultralight'}, optional
             - color : str, optional (e.g., 'red', 'blue', etc.)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.set_ylabel(txt, **kwargs)
         return self
 
     def legend(self, **kwargs):
-        """Adds a legend to the plot.
+        """
+        Adds a legend to the plot.
 
-        Parameters:
+        Parameters
+        ----------
         kwargs : dict, optional
             Additional keyword arguments passed to `ax.legend()`, such as:
             - loc : str or int, optional (location of the legend, e.g., 'best', 'upper left', 0)
@@ -94,18 +122,20 @@ class Viz:
             - shadow : bool, optional (whether to add shadow)
             - bbox_to_anchor : tuple, optional (to specify a custom position for the legend)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.legend(**kwargs)
         return self
 
     def grid(self, flag=True, **kwargs):
-        """Enables or disables the grid on the plot.
+        """
+        Enables or disables the grid on the plot.
 
-        Parameters:
+        Parameters
+        ----------
         flag : bool, optional, default True
             If True, the grid is enabled, otherwise it is disabled.
         kwargs : dict, optional
@@ -115,18 +145,20 @@ class Viz:
             - linewidth : float, optional (line thickness)
             - which : {'major', 'minor'}, optional (gridlines for major or minor ticks)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.grid(flag, **kwargs)
         return self
 
     def plot(self, *args, **kwargs):
-        """Plots data on the axis.
+        """
+        Plots data on the axis.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             The data to plot. The first element is typically the x-data, and the second is the y-data.
         kwargs : dict, optional
@@ -137,18 +169,20 @@ class Viz:
             - marker : {'o', 'x', 's', '^', etc.}, optional (marker style)
             - linewidth : float, optional (line thickness)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.plot(*args, **kwargs)
         return self
 
     def scatter(self, *args, **kwargs):
-        """Creates a scatter plot.
+        """
+        Creates a scatter plot.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             The data to plot as scatter. The first element is typically the x-data, and the second is the y-data.
         kwargs : dict, optional
@@ -158,18 +192,20 @@ class Viz:
             - s : scalar or array-like, optional (size of markers)
             - alpha : float, optional (transparency, from 0 to 1)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.scatter(*args, **kwargs)
         return self
 
     def bar(self, *args, **kwargs):
-        """Creates a bar plot.
+        """
+        Creates a bar plot.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             The data to plot as bars. The first element is the x-data (positions), and the second is the y-data (height).
         kwargs : dict, optional
@@ -178,18 +214,20 @@ class Viz:
             - width : float, optional (width of bars)
             - align : {'center', 'edge'}, optional (alignment of bars)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.bar(*args, **kwargs)
         return self
 
     def set_xlim(self, *args, **kwargs):
-        """Sets the limits for the x-axis.
+        """
+        Sets the limits for the x-axis.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             The limits to set as (min, max).
         kwargs : dict, optional
@@ -197,18 +235,20 @@ class Viz:
             - xmin : float, optional (minimum limit for x-axis)
             - xmax : float, optional (maximum limit for x-axis)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.set_xlim(*args, **kwargs)
         return self
 
     def set_ylim(self, *args, **kwargs):
-        """Sets the limits for the y-axis.
+        """
+        Sets the limits for the y-axis.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             The limits to set as (min, max).
         kwargs : dict, optional
@@ -216,18 +256,20 @@ class Viz:
             - ymin : float, optional (minimum limit for y-axis)
             - ymax : float, optional (maximum limit for y-axis)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.set_ylim(*args, **kwargs)
         return self
 
     def annotate(self, *args, **kwargs):
-        """Adds an annotation to the plot.
+        """
+        Adds an annotation to the plot.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             The annotation arguments, typically (text, xy).
         kwargs : dict, optional
@@ -236,18 +278,20 @@ class Viz:
             - arrowprops : dict, optional (properties of the arrow, e.g., {'arrowstyle': '->'})
             - fontsize : int, optional (font size of the annotation text)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.annotate(*args, **kwargs)
         return self
 
     def save(self, path, **kwargs):
-        """Saves the figure to a file.
+        """
+        Saves the figure to a file.
 
-        Parameters:
+        Parameters
+        ----------
         path : str
             The file path to save the figure.
         kwargs : dict, optional
@@ -255,32 +299,34 @@ class Viz:
             - dpi : int, optional (dots per inch for image resolution)
             - bbox_inches : str or 'tight', optional (to adjust bounding box)
             - transparent : bool, optional (if True, the background is transparent)
-
         """
         self.fig.savefig(path, **kwargs)
         
     def figsize(self, size):
-        """Sets the figure size.
+        """
+        Sets the figure size.
 
-        Parameters:
+        Parameters
+        ----------
         size : tuple
             The size of the figure as (width, height) in inches.
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.fig.set_size_inches(*size, forward=True)
         return self
 
     def show(self, clear=False):
-        """Displays the plot.
+        """
+        Displays the plot.
 
-        Parameters:
+        Parameters
+        ----------
         clear : bool, optional
             If True, the previous output is cleared before showing the plot.
-
         """
         if clear:
             clear_output(wait=True)
@@ -290,9 +336,11 @@ class Viz:
             plt.show()
 
     def tight_layout(self, **kwargs):
-        """Adjusts the layout to prevent overlap of plot elements.
+        """
+        Adjusts the layout to prevent overlap of plot elements.
 
-        Parameters:
+        Parameters
+        ----------
         kwargs : dict, optional
             Additional keyword arguments passed to `fig.tight_layout()`, such as:
             - pad : float, optional (padding between plot elements)
@@ -300,18 +348,20 @@ class Viz:
             - w_pad : float, optional (width padding)
             - rect : tuple, optional (the area to which the layout is confined, e.g., (left, bottom, right, top))
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.fig.tight_layout(**kwargs)
         return self
 
     def suptitle(self, txt, **kwargs):
-        """Sets the title for the entire figure.
+        """
+        Sets the title for the entire figure.
 
-        Parameters:
+        Parameters
+        ----------
         txt : str
             The title text.
         kwargs : dict, optional
@@ -320,76 +370,84 @@ class Viz:
             - fontweight : {'normal', 'bold', 'heavy', 'light', 'ultrabold', 'ultralight'}, optional
             - color : str, optional (e.g., 'red', 'blue', etc.)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.fig.suptitle(txt, **kwargs)
         return self
 
     def set_xticks(self, ticks, **kwargs):
-        """Sets the ticks on the x-axis.
+        """
+        Sets the ticks on the x-axis.
 
-        Parameters:
+        Parameters
+        ----------
         ticks : list
             A list of positions where ticks should appear on the x-axis.
         kwargs : dict, optional
             Additional keyword arguments passed to `ax.set_xticks()`, such as:
             - minor : bool, optional (if True, the minor ticks are set instead of the major ones)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.set_xticks(ticks, **kwargs)
         return self
     
     def set_yticks(self, ticks, **kwargs):
-        """Sets the ticks on the y-axis.
+        """
+        Sets the ticks on the y-axis.
 
-        Parameters:
+        Parameters
+        ----------
         ticks : list
             A list of positions where ticks should appear on the y-axis.
         kwargs : dict, optional
             Additional keyword arguments passed to `ax.set_yticks()`, such as:
             - minor : bool, optional (if True, the minor ticks are set instead of the major ones)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.set_yticks(ticks, **kwargs)
         return self
         
     def invert_x(self):
-        """Inverts the x-axis.
+        """
+        Inverts the x-axis.
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.invert_xaxis()
         return self
     
     def invert_y(self):
-        """Inverts the y-axis.
+        """
+        Inverts the y-axis.
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.invert_yaxis()
         return self
 
     def hlines(self, *args, **kwargs):
-        """Draws horizontal lines across the plot.
+        """
+        Draws horizontal lines across the plot.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             Arguments passed to `ax.hlines()`, typically:
             - y : scalar or array-like (y positions of the lines)
@@ -401,18 +459,20 @@ class Viz:
             - linewidth : float, optional (thickness of the line)
             - linestyle : {'-', '--', '-.', ':'}, optional (line style)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.hlines(*args, **kwargs)
         return self
     
     def vlines(self, *args, **kwargs):
-        """Draws vertical lines across the plot.
+        """
+        Draws vertical lines across the plot.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             Arguments passed to `ax.vlines()`, typically:
             - x : scalar or array-like (x positions of the lines)
@@ -424,29 +484,32 @@ class Viz:
             - linewidth : float, optional (thickness of the line)
             - linestyle : {'-', '--', '-.', ':'}, optional (line style)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.vlines(*args, **kwargs)
         return self
 
     def clear(self):
-        """Clears the current axis.
+        """
+        Clears the current axis.
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.cla()
         return self
     
     def aspect(self, value='auto'):
-        """Sets the aspect ratio of the plot.
+        """
+        Sets the aspect ratio of the plot.
 
-        Parameters:
+        Parameters
+        ----------
         value : str or float, optional, default='auto'
             The aspect ratio to set:
             - 'auto' (default): automatic aspect ratio based on the data
@@ -454,44 +517,49 @@ class Viz:
             - float: fixed aspect ratio, e.g., 1.0 for equal scaling
             - 'scaled': scaled based on the data range
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.set_aspect(value)
         return self
 
     def twinx(self):
-        """Creates a twin axis sharing the same x-axis but different y-axis.
+        """
+        Creates a twin axis sharing the same x-axis but different y-axis.
 
-        Returns:
+        Returns
+        -------
         Viz
             A new Viz object with the twin axis.
-
         """
         twin_ax = self.ax.twinx()
         return Viz(twin_ax, self.fig)
 
     def style(self, style_name='seaborn-v0_8-whitegrid'):
-        """Applies a matplotlib style to the plot.
+        """
+        Applies a matplotlib style to the plot.
 
-        Parameters:
+        Parameters
+        ----------
         style_name : str, optional, default='seaborn-v0_8-whitegrid'
             The style to apply. For example, 'seaborn-darkgrid', 'ggplot', etc.
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         plt.style.use(style_name)
         return self
     
     def imshow(self, *args, **kwargs):
-        """Displays an image on the plot.
+        """
+        Displays an image on the plot.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             The image data (e.g., a 2D array representing pixel intensities).
         kwargs : dict, optional
@@ -500,18 +568,20 @@ class Viz:
             - interpolation : str, optional (method for interpolation, e.g., 'nearest', 'bilinear')
             - alpha : float, optional (transparency, from 0 to 1)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.imshow(*args, **kwargs)
         return self
     
     def contour(self, *args, **kwargs):
-        """Creates a contour plot.
+        """
+        Creates a contour plot.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             The contour data, typically (X, Y, Z) where Z represents the contour levels.
         kwargs : dict, optional
@@ -520,47 +590,52 @@ class Viz:
             - colors : str or array-like, optional (colors for the contours)
             - linewidths : float, optional (width of contour lines)
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         self.ax.contour(*args, **kwargs)
         return self
     
     def close(self):
-        """Closes the figure.
+        """
+        Closes the figure.
 
-        Returns:
+        Returns
+        -------
         self : Viz
             The Viz object itself, allowing for method chaining.
-
         """
         plt.close(self.fig)
         return self
     
     def add_subplot(self, *args, **kwargs):
-        """Adds a new subplot to the figure.
+        """
+        Adds a new subplot to the figure.
 
-        Parameters:
+        Parameters
+        ----------
         args : tuple
             Arguments for `fig.add_subplot()`, such as (nrows, ncols, index).
         kwargs : dict, optional
             Additional keyword arguments passed to `fig.add_subplot()`.
 
-        Returns:
+        Returns
+        -------
         Viz
             A new Viz object wrapping the new subplot.
-
         """
         ax = self.fig.add_subplot(*args, **kwargs)
         return Viz(ax, self.fig)
     
     @staticmethod
     def combine_viz(viz_list, nrows=None, ncols=None):# Determine the number of rows and columns if not provided
-        """Combines multiple Viz objects into a single figure with subplots.
+        """
+        Combines multiple Viz objects into a single figure with subplots.
 
-        Parameters:
+        Parameters
+        ----------
         viz_list : list
             A list of Viz objects to combine.
         nrows : int, optional
@@ -568,10 +643,10 @@ class Viz:
         ncols : int, optional
             The number of columns for the subplot grid (default is None).
 
-        Returns:
+        Returns
+        -------
         Viz
             A new Viz object containing the combined plots.
-
         """
         if nrows is None or ncols is None:
             # If grid size is not provided, calculate it based on the length of viz_list
@@ -611,23 +686,25 @@ class Viz:
         
  
     def __repr__(self):
-        """Represents the Viz object by displaying the plot.
-        
+        """
+        Represents the Viz object by displaying the plot.
         """
         self.show()  
         return ""
 
     def __getattr__(self, attr):
-        """Retrieves attributes of the underlying axis.
+        """
+        Retrieves attributes of the underlying axis.
 
-        Parameters:
+        Parameters
+        ----------
         attr : str
             The name of the attribute to retrieve.
 
-        Returns:
+        Returns
+        -------
         method : function
             The method of the underlying axis for the given attribute.
-
         """
         if hasattr(self.ax, attr):
             def method(*args, **kwargs):
@@ -637,36 +714,37 @@ class Viz:
         raise AttributeError(f"'PlotWrapper' has no attribute '{attr}'")
         
     def __dir__(self):
-        """Returns a list of the attributes and methods available for the Viz
+        """
+        Returns a list of the attributes and methods available for the Viz
         object.
-        
         """
         return sorted(set(super().__dir__()) | set(dir(self.ax)))
     
     def __enter__(self):
-        """Initializes the Viz object for use in a context manager (e.g., with
+        """
+        Initializes the Viz object for use in a context manager (e.g., with
         `with` statement).
-        
         """
         return self
     
     def __exit__(self, exc_type, exc_val, exc_tb):
-        """Displays the plot when exiting a context manager.
-        
+        """
+        Displays the plot when exiting a context manager.
         """
         self.show()
     
     def __getitem__(self, key):
-        """Retrieves the item from the axis using the provided key.
+        """
+        Retrieves the item from the axis using the provided key.
 
-        Parameters:
+        Parameters
+        ----------
         key : index or key
             The key or index for the item.
 
-        Returns:
+        Returns
+        -------
         item : object
             The item from the axis corresponding to the key.
-            
         """
         return self.ax[key]
-  

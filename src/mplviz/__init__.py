@@ -22,7 +22,8 @@
 # SOFTWARE.
 # --------------------------------------------------------------------------------
 
-"""A fluent, chainable wrapper around Matplotlib for creating and managing
+"""
+A fluent, chainable wrapper around Matplotlib for creating and managing
 plots. Designed for clean, expressive, and reusable plotting in Python.
 
 Author: BBEK-Anand

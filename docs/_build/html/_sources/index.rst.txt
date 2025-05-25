@@ -1,19 +1,19 @@
-Welcome to mplviz Documentation!
-================================
+mplviz – A Fluent API Wrapper for Matplotlib
+============================================
 
-`mplviz` provides a fluent, expressive interface for creating Matplotlib visualizations with ease.
+**mplviz** is a user-friendly, fluent API wrapper for ``matplotlib`` designed to streamline the process of creating, customizing, and managing plots in Python. By supporting method chaining and reusable functions, **mplviz** makes complex plotting workflows easier to handle, while still offering complete control over ``matplotlib`` functionalities.
 
-📘 See the :class:`mplviz.Viz` class for usage details.
 
 .. toctree::
    :maxdepth: 2
-   :caption: API Reference
+   :caption: Contents:
 
-   source/api
+   source/features
+   source/install
+   source/api/api
+   source/footer
 
-.. Indices and tables
-.. ==================
 
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
+
+
+
