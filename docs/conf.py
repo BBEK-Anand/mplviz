@@ -12,9 +12,10 @@ release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
 extensions = [
-    'myst_parser',  # Enables Markdown support
+    'myst_parser',
+    'sphinx.ext.autodoc',       # ← required for .. automodule::
+    'sphinx.ext.napoleon',      # ← optional: supports NumPy/Google-style docstrings
 ]
-
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
