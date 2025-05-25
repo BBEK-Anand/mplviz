@@ -8,8 +8,7 @@ build:
 python:
   install:
     - requirements: docs/requirements.txt
-    - path: .
-      editable: true
+
 
 sphinx:
   configuration: docs/conf.py
