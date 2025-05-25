@@ -1,54 +1,25 @@
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../src'))  # Adjust if your source code is elsewhere
+# sys.path.insert(0, os.path.abspath('../src'))
 
-project = 'mplviz'
+sys.path.insert(0, os.path.abspath('../src/mplviz'))
+
+
+project = 'mplvis'
+copyright = '2025, BBEK-Anand'
 author = 'BBEK-Anand'
 release = '0.1.0'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.autosummary'
+    'sphinx.ext.napoleon',       # for Google/Numpy-style docstrings
+    'sphinx.ext.viewcode',
 ]
-autosummary_generate = True
 
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-# Use the 'furo' theme for a modern look
-# html_theme = 'furo'
-# html_theme = 'sphinx_rtd_t/heme'
-html_theme = 'alabaster'
+autodoc_typehints = 'description'  # keeps type hints in descriptions, less clutter
 
-# Static files (e.g., custom CSS)
+html_theme = "sphinx_rtd_theme" # if installed
 html_static_path = ['_static']
-
-# # Add custom CSS file
-# html_css_files = [
-#     'custom.css',
-# ]
-
-# Optional theme options (check furo docs for more)
-html_theme_options = {
-        # 'logo': 'logo.png',
-    # 'logo_name': True,
-    # 'description': 'A fluent, chainable wrapper around Matplotlib ',
-    # 'github_user': 'BBEK-Anand',
-    # 'github_repo': 'mplviz',
-    # 'github_banner': True,
-    # 'github_type': 'star',  # 'star' or 'fork'
-    # 'fixed_sidebar': True,
-    # 'show_powered_by': False,
-    # 'show_related': True,
-    # 'note_bg': '#FFF59C',
-    # 'sidebar_width': '220px',
-    # 'page_width': '980px',
-}
-
-# # Sidebar config example (optional)
-# html_sidebars = {
-#     '**': ['sidebar/brand.html', 'sidebar/search.html', 'sidebar/navigation.html', 'sidebar/ethical-ads.html'],
-# }
-
-
