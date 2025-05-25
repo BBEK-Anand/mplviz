@@ -5,6 +5,7 @@ import numpy as np
 
 
 class Viz:
+
     """
     Viz class for plotting on a matplotlib axis.
 
@@ -20,9 +21,12 @@ class Viz:
     add_subplot(*args, **kwargs)
         Adds a new subplot to the figure.
     """
-    def __init__(self, ax, fig=None):
+
+
+    def __init__(self, ax=None, fig=None):
         """
         Initializes the Viz object with a given axis and optional figure.
+
 
         Parameters
         ----------
@@ -31,6 +35,8 @@ class Viz:
         fig : matplotlib.figure.Figure, optional
             The figure containing the axis (default is None, which means it uses ax.figure).
         """
+        if(ax==None):
+            fig, ax = plt.subplots()
         self.ax = ax
         self.fig = fig or ax.figure
 
