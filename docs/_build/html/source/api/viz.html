@@ -1,0 +1,811 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>viz &mdash; mplvis 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="🧪 Tests" href="../footer.html" />
+    <link rel="prev" title="📚 API Reference" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            mplvis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../features.html">✨ Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">🚀 Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#installation">📦 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html#usage">🧑‍💻 Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">📚 API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">viz</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#viz.Viz"><code class="docutils literal notranslate"><span class="pre">Viz</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.add_subplot"><code class="docutils literal notranslate"><span class="pre">Viz.add_subplot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Viz.add_subplot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.annotate"><code class="docutils literal notranslate"><span class="pre">Viz.annotate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.aspect"><code class="docutils literal notranslate"><span class="pre">Viz.aspect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.bar"><code class="docutils literal notranslate"><span class="pre">Viz.bar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.clear"><code class="docutils literal notranslate"><span class="pre">Viz.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.close"><code class="docutils literal notranslate"><span class="pre">Viz.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.combine_viz"><code class="docutils literal notranslate"><span class="pre">Viz.combine_viz()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.contour"><code class="docutils literal notranslate"><span class="pre">Viz.contour()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.figsize"><code class="docutils literal notranslate"><span class="pre">Viz.figsize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.grid"><code class="docutils literal notranslate"><span class="pre">Viz.grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.hlines"><code class="docutils literal notranslate"><span class="pre">Viz.hlines()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.imshow"><code class="docutils literal notranslate"><span class="pre">Viz.imshow()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.invert_x"><code class="docutils literal notranslate"><span class="pre">Viz.invert_x()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.invert_y"><code class="docutils literal notranslate"><span class="pre">Viz.invert_y()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.legend"><code class="docutils literal notranslate"><span class="pre">Viz.legend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.plot"><code class="docutils literal notranslate"><span class="pre">Viz.plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.save"><code class="docutils literal notranslate"><span class="pre">Viz.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.scatter"><code class="docutils literal notranslate"><span class="pre">Viz.scatter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.set_title"><code class="docutils literal notranslate"><span class="pre">Viz.set_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.set_xlim"><code class="docutils literal notranslate"><span class="pre">Viz.set_xlim()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.set_xticks"><code class="docutils literal notranslate"><span class="pre">Viz.set_xticks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.set_ylim"><code class="docutils literal notranslate"><span class="pre">Viz.set_ylim()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.set_yticks"><code class="docutils literal notranslate"><span class="pre">Viz.set_yticks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.show"><code class="docutils literal notranslate"><span class="pre">Viz.show()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.style"><code class="docutils literal notranslate"><span class="pre">Viz.style()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.suptitle"><code class="docutils literal notranslate"><span class="pre">Viz.suptitle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.tight_layout"><code class="docutils literal notranslate"><span class="pre">Viz.tight_layout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.twinx"><code class="docutils literal notranslate"><span class="pre">Viz.twinx()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.vlines"><code class="docutils literal notranslate"><span class="pre">Viz.vlines()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.xlabel"><code class="docutils literal notranslate"><span class="pre">Viz.xlabel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viz.Viz.ylabel"><code class="docutils literal notranslate"><span class="pre">Viz.ylabel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../footer.html">🧪 Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footer.html#license">📄 License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../footer.html#author">👤 Author</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mplvis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">📚 API Reference</a></li>
+      <li class="breadcrumb-item active">viz</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/source/api/viz.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="viz">
+<h1>viz<a class="headerlink" href="#viz" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="viz.Viz">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">viz.</span></span><span class="sig-name descname"><span class="pre">Viz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Viz class for plotting on a matplotlib axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – The axis on which the plot will be drawn.</p></li>
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – The figure containing the axis. Defaults to None, in which case ax.figure is used.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.add_subplot">
+<span class="sig-name descname"><span class="pre">add_subplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">\*\*kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.add_subplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.add_subplot" title="Link to this definition"></a></dt>
+<dd><p>Adds a new subplot to the figure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">add_subplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.add_subplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Adds a new subplot to the figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – Arguments for <cite>fig.add_subplot()</cite>, such as (nrows, ncols, index).</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>fig.add_subplot()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new Viz object wrapping the new subplot.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.annotate">
+<span class="sig-name descname"><span class="pre">annotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.annotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.annotate" title="Link to this definition"></a></dt>
+<dd><p>Adds an annotation to the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – The annotation arguments, typically (text, xy).</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.annotate()</cite>, such as:
+- xytext : tuple, optional (position of annotation text)
+- arrowprops : dict, optional (properties of the arrow, e.g., {‘arrowstyle’: ‘-&gt;’})
+- fontsize : int, optional (font size of the annotation text)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.aspect">
+<span class="sig-name descname"><span class="pre">aspect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.aspect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.aspect" title="Link to this definition"></a></dt>
+<dd><p>Sets the aspect ratio of the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>str</em><em> or </em><em>float</em><em>, </em><em>optional</em><em>, </em><em>default='auto'</em>) – The aspect ratio to set:
+- ‘auto’ (default): automatic aspect ratio based on the data
+- ‘equal’: equal scaling on both axes
+- float: fixed aspect ratio, e.g., 1.0 for equal scaling
+- ‘scaled’: scaled based on the data range</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.bar">
+<span class="sig-name descname"><span class="pre">bar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.bar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.bar" title="Link to this definition"></a></dt>
+<dd><p>Creates a bar plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – The data to plot as bars. The first element is the x-data (positions), and the second is the y-data (height).</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.bar()</cite>, such as:
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)
+- width : float, optional (width of bars)
+- align : {‘center’, ‘edge’}, optional (alignment of bars)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.clear" title="Link to this definition"></a></dt>
+<dd><p>Clears the current axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.close" title="Link to this definition"></a></dt>
+<dd><p>Closes the figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.combine_viz">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">combine_viz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">viz_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.combine_viz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.combine_viz" title="Link to this definition"></a></dt>
+<dd><p>Combines multiple Viz objects into a single figure with subplots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>viz_list</strong> (<em>list</em>) – A list of Viz objects to combine.</p></li>
+<li><p><strong>nrows</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of rows for the subplot grid (default is None).</p></li>
+<li><p><strong>ncols</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of columns for the subplot grid (default is None).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new Viz object containing the combined plots.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.contour">
+<span class="sig-name descname"><span class="pre">contour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.contour"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.contour" title="Link to this definition"></a></dt>
+<dd><p>Creates a contour plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – The contour data, typically (X, Y, Z) where Z represents the contour levels.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.contour()</cite>, such as:
+- levels : int or array-like, optional (specific contour levels)
+- colors : str or array-like, optional (colors for the contours)
+- linewidths : float, optional (width of contour lines)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.figsize">
+<span class="sig-name descname"><span class="pre">figsize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.figsize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.figsize" title="Link to this definition"></a></dt>
+<dd><p>Sets the figure size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>size</strong> (<em>tuple</em>) – The size of the figure as (width, height) in inches.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.grid">
+<span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.grid" title="Link to this definition"></a></dt>
+<dd><p>Enables or disables the grid on the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flag</strong> (<em>bool</em><em>, </em><em>optional</em><em>, </em><em>default True</em>) – If True, the grid is enabled, otherwise it is disabled.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.grid()</cite>, such as:
+- color : str, optional (e.g., ‘gray’, ‘blue’, etc.)
+- linestyle : {‘-’, ‘–’, ‘-.’, ‘:’}, optional
+- linewidth : float, optional (line thickness)
+- which : {‘major’, ‘minor’}, optional (gridlines for major or minor ticks)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.hlines">
+<span class="sig-name descname"><span class="pre">hlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.hlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.hlines" title="Link to this definition"></a></dt>
+<dd><p>Draws horizontal lines across the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – Arguments passed to <cite>ax.hlines()</cite>, typically:
+- y : scalar or array-like (y positions of the lines)
+- xmin : scalar, optional (left limit for the line)
+- xmax : scalar, optional (right limit for the line)</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.hlines()</cite>, such as:
+- color : str, optional (line color)
+- linewidth : float, optional (thickness of the line)
+- linestyle : {‘-’, ‘–’, ‘-.’, ‘:’}, optional (line style)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.imshow">
+<span class="sig-name descname"><span class="pre">imshow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.imshow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.imshow" title="Link to this definition"></a></dt>
+<dd><p>Displays an image on the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – The image data (e.g., a 2D array representing pixel intensities).</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.imshow()</cite>, such as:
+- cmap : str, optional (colormap for displaying the image)
+- interpolation : str, optional (method for interpolation, e.g., ‘nearest’, ‘bilinear’)
+- alpha : float, optional (transparency, from 0 to 1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.invert_x">
+<span class="sig-name descname"><span class="pre">invert_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.invert_x"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.invert_x" title="Link to this definition"></a></dt>
+<dd><p>Inverts the x-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.invert_y">
+<span class="sig-name descname"><span class="pre">invert_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.invert_y"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.invert_y" title="Link to this definition"></a></dt>
+<dd><p>Inverts the y-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.legend">
+<span class="sig-name descname"><span class="pre">legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.legend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.legend" title="Link to this definition"></a></dt>
+<dd><p>Adds a legend to the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.legend()</cite>, such as:
+- loc : str or int, optional (location of the legend, e.g., ‘best’, ‘upper left’, 0)
+- fontsize : int or float, optional
+- title : str, optional (title of the legend)
+- shadow : bool, optional (whether to add shadow)
+- bbox_to_anchor : tuple, optional (to specify a custom position for the legend)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.plot" title="Link to this definition"></a></dt>
+<dd><p>Plots data on the axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – The data to plot. The first element is typically the x-data, and the second is the y-data.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.plot()</cite>, such as:
+- label : str, optional (label for the plot, used in legend)
+- linestyle : {‘-’, ‘–’, ‘-.’, ‘:’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)
+- marker : {‘o’, ‘x’, ‘s’, ‘^’, etc.}, optional (marker style)
+- linewidth : float, optional (line thickness)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.save" title="Link to this definition"></a></dt>
+<dd><p>Saves the figure to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – The file path to save the figure.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>fig.savefig()</cite>, such as:
+- dpi : int, optional (dots per inch for image resolution)
+- bbox_inches : str or ‘tight’, optional (to adjust bounding box)
+- transparent : bool, optional (if True, the background is transparent)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.scatter">
+<span class="sig-name descname"><span class="pre">scatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.scatter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.scatter" title="Link to this definition"></a></dt>
+<dd><p>Creates a scatter plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – The data to plot as scatter. The first element is typically the x-data, and the second is the y-data.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.scatter()</cite>, such as:
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)
+- marker : {‘o’, ‘x’, ‘s’, ‘^’, etc.}, optional (marker style)
+- s : scalar or array-like, optional (size of markers)
+- alpha : float, optional (transparency, from 0 to 1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.set_title">
+<span class="sig-name descname"><span class="pre">set_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.set_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.set_title" title="Link to this definition"></a></dt>
+<dd><p>Sets the title of the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>txt</strong> (<em>str</em>) – The title text.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.set_title()</cite>, such as:
+- fontsize : int or float, optional
+- fontweight : {‘normal’, ‘bold’, ‘heavy’, ‘light’, ‘ultrabold’, ‘ultralight’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)
+- pad : float, optional (distance from the top of the axes)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.set_xlim">
+<span class="sig-name descname"><span class="pre">set_xlim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.set_xlim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.set_xlim" title="Link to this definition"></a></dt>
+<dd><p>Sets the limits for the x-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – The limits to set as (min, max).</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.set_xlim()</cite>, such as:
+- xmin : float, optional (minimum limit for x-axis)
+- xmax : float, optional (maximum limit for x-axis)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.set_xticks">
+<span class="sig-name descname"><span class="pre">set_xticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.set_xticks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.set_xticks" title="Link to this definition"></a></dt>
+<dd><p>Sets the ticks on the x-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ticks</strong> (<em>list</em>) – A list of positions where ticks should appear on the x-axis.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.set_xticks()</cite>, such as:
+- minor : bool, optional (if True, the minor ticks are set instead of the major ones)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.set_ylim">
+<span class="sig-name descname"><span class="pre">set_ylim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.set_ylim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.set_ylim" title="Link to this definition"></a></dt>
+<dd><p>Sets the limits for the y-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – The limits to set as (min, max).</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.set_ylim()</cite>, such as:
+- ymin : float, optional (minimum limit for y-axis)
+- ymax : float, optional (maximum limit for y-axis)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.set_yticks">
+<span class="sig-name descname"><span class="pre">set_yticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.set_yticks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.set_yticks" title="Link to this definition"></a></dt>
+<dd><p>Sets the ticks on the y-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ticks</strong> (<em>list</em>) – A list of positions where ticks should appear on the y-axis.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.set_yticks()</cite>, such as:
+- minor : bool, optional (if True, the minor ticks are set instead of the major ones)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.show" title="Link to this definition"></a></dt>
+<dd><p>Displays the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clear</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the previous output is cleared before showing the plot.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.style">
+<span class="sig-name descname"><span class="pre">style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'seaborn-v0_8-whitegrid'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.style" title="Link to this definition"></a></dt>
+<dd><p>Applies a matplotlib style to the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>style_name</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default='seaborn-v0_8-whitegrid'</em>) – The style to apply. For example, ‘seaborn-darkgrid’, ‘ggplot’, etc.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.suptitle">
+<span class="sig-name descname"><span class="pre">suptitle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.suptitle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.suptitle" title="Link to this definition"></a></dt>
+<dd><p>Sets the title for the entire figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>txt</strong> (<em>str</em>) – The title text.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>fig.suptitle()</cite>, such as:
+- fontsize : int or float, optional (size of the title text)
+- fontweight : {‘normal’, ‘bold’, ‘heavy’, ‘light’, ‘ultrabold’, ‘ultralight’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.tight_layout">
+<span class="sig-name descname"><span class="pre">tight_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.tight_layout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.tight_layout" title="Link to this definition"></a></dt>
+<dd><p>Adjusts the layout to prevent overlap of plot elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>fig.tight_layout()</cite>, such as:
+- pad : float, optional (padding between plot elements)
+- h_pad : float, optional (height padding)
+- w_pad : float, optional (width padding)
+- rect : tuple, optional (the area to which the layout is confined, e.g., (left, bottom, right, top))</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.twinx">
+<span class="sig-name descname"><span class="pre">twinx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.twinx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.twinx" title="Link to this definition"></a></dt>
+<dd><p>Creates a twin axis sharing the same x-axis but different y-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new Viz object with the twin axis.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.vlines">
+<span class="sig-name descname"><span class="pre">vlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.vlines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.vlines" title="Link to this definition"></a></dt>
+<dd><p>Draws vertical lines across the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>tuple</em>) – Arguments passed to <cite>ax.vlines()</cite>, typically:
+- x : scalar or array-like (x positions of the lines)
+- ymin : scalar, optional (bottom limit for the line)
+- ymax : scalar, optional (top limit for the line)</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.vlines()</cite>, such as:
+- color : str, optional (line color)
+- linewidth : float, optional (thickness of the line)
+- linestyle : {‘-’, ‘–’, ‘-.’, ‘:’}, optional (line style)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.xlabel">
+<span class="sig-name descname"><span class="pre">xlabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.xlabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.xlabel" title="Link to this definition"></a></dt>
+<dd><p>Sets the label for the x-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>txt</strong> (<em>str</em>) – The label text for the x-axis.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.set_xlabel()</cite>, such as:
+- fontsize : int or float, optional
+- fontweight : {‘normal’, ‘bold’, ‘heavy’, ‘light’, ‘ultrabold’, ‘ultralight’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="viz.Viz.ylabel">
+<span class="sig-name descname"><span class="pre">ylabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/viz.html#Viz.ylabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#viz.Viz.ylabel" title="Link to this definition"></a></dt>
+<dd><p>Sets the label for the y-axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>txt</strong> (<em>str</em>) – The label text for the y-axis.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments passed to <cite>ax.set_ylabel()</cite>, such as:
+- fontsize : int or float, optional
+- fontweight : {‘normal’, ‘bold’, ‘heavy’, ‘light’, ‘ultrabold’, ‘ultralight’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The Viz object itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#viz.Viz" title="viz.Viz">Viz</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="📚 API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../footer.html" class="btn btn-neutral float-right" title="🧪 Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BBEK-Anand.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
