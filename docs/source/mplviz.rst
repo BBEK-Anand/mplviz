@@ -1,10 +1,7 @@
-mplviz package
-==============
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
 
-Module contents
----------------
-
-.. automodule:: mplviz
-   :members:
-   :show-inheritance:
-   :undoc-members:
+   modules
+   api
+   mplviz

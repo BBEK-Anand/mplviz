@@ -1,7 +1,8 @@
-mplviz
-======
+API Reference
+=============
 
-.. toctree::
-   :maxdepth: 4
+.. autosummary::
+   :toctree: generated
+   :nosignatures:
 
-   mplviz
+   mplviz.viz.Viz
