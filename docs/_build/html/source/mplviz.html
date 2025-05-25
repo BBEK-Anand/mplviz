@@ -239,8 +239,633 @@
         <article role="main" id="furo-main-content">
           <section id="mplviz-package">
 <h1>mplviz package<a class="headerlink" href="#mplviz-package" title="Link to this heading">¶</a></h1>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<section id="module-mplviz">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mplviz" title="Link to this heading">¶</a></h2>
+<p>A fluent, chainable wrapper around Matplotlib for creating and managing plots.
+Designed for clean, expressive, and reusable plotting in Python.</p>
+<p>Author: BBEK-Anand
+License: MIT</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mplviz.Viz">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mplviz.</span></span><span class="sig-name descname"><span class="pre">Viz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.add_subplot">
+<span class="sig-name descname"><span class="pre">add_subplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.add_subplot" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a new subplot to the figure.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>Arguments for <cite>fig.add_subplot()</cite>, such as (nrows, ncols, index).</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>fig.add_subplot()</cite>.</p>
+</dd>
+</dl>
+<p>Returns:
+Viz</p>
+<blockquote>
+<div><p>A new Viz object wrapping the new subplot.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.annotate">
+<span class="sig-name descname"><span class="pre">annotate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.annotate" title="Link to this definition">¶</a></dt>
+<dd><p>Adds an annotation to the plot.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>The annotation arguments, typically (text, xy).</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.annotate()</cite>, such as:
+- xytext : tuple, optional (position of annotation text)
+- arrowprops : dict, optional (properties of the arrow, e.g., {‘arrowstyle’: ‘-&gt;’})
+- fontsize : int, optional (font size of the annotation text)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.aspect">
+<span class="sig-name descname"><span class="pre">aspect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.aspect" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the aspect ratio of the plot.</p>
+<p>Parameters:
+value : str or float, optional, default=’auto’</p>
+<blockquote>
+<div><p>The aspect ratio to set:
+- ‘auto’ (default): automatic aspect ratio based on the data
+- ‘equal’: equal scaling on both axes
+- float: fixed aspect ratio, e.g., 1.0 for equal scaling
+- ‘scaled’: scaled based on the data range</p>
+</div></blockquote>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.bar">
+<span class="sig-name descname"><span class="pre">bar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.bar" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a bar plot.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>The data to plot as bars. The first element is the x-data (positions), and the second is the y-data (height).</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.bar()</cite>, such as:
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)
+- width : float, optional (width of bars)
+- align : {‘center’, ‘edge’}, optional (alignment of bars)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.clear" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the current axis.</p>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.close" title="Link to this definition">¶</a></dt>
+<dd><p>Closes the figure.</p>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.combine_viz">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">combine_viz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">viz_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.combine_viz" title="Link to this definition">¶</a></dt>
+<dd><p>Combines multiple Viz objects into a single figure with subplots.</p>
+<p>Parameters:
+viz_list : list</p>
+<blockquote>
+<div><p>A list of Viz objects to combine.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>nrows<span class="classifier">int, optional</span></dt><dd><p>The number of rows for the subplot grid (default is None).</p>
+</dd>
+<dt>ncols<span class="classifier">int, optional</span></dt><dd><p>The number of columns for the subplot grid (default is None).</p>
+</dd>
+</dl>
+<p>Returns:
+Viz</p>
+<blockquote>
+<div><p>A new Viz object containing the combined plots.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.contour">
+<span class="sig-name descname"><span class="pre">contour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.contour" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a contour plot.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>The contour data, typically (X, Y, Z) where Z represents the contour levels.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.contour()</cite>, such as:
+- levels : int or array-like, optional (specific contour levels)
+- colors : str or array-like, optional (colors for the contours)
+- linewidths : float, optional (width of contour lines)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.figsize">
+<span class="sig-name descname"><span class="pre">figsize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.figsize" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the figure size.</p>
+<p>Parameters:
+size : tuple</p>
+<blockquote>
+<div><p>The size of the figure as (width, height) in inches.</p>
+</div></blockquote>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.grid">
+<span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.grid" title="Link to this definition">¶</a></dt>
+<dd><p>Enables or disables the grid on the plot.</p>
+<p>Parameters:
+flag : bool, optional, default True</p>
+<blockquote>
+<div><p>If True, the grid is enabled, otherwise it is disabled.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.grid()</cite>, such as:
+- color : str, optional (e.g., ‘gray’, ‘blue’, etc.)
+- linestyle : {‘-’, ‘–’, ‘-.’, ‘:’}, optional
+- linewidth : float, optional (line thickness)
+- which : {‘major’, ‘minor’}, optional (gridlines for major or minor ticks)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.hlines">
+<span class="sig-name descname"><span class="pre">hlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.hlines" title="Link to this definition">¶</a></dt>
+<dd><p>Draws horizontal lines across the plot.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>Arguments passed to <cite>ax.hlines()</cite>, typically:
+- y : scalar or array-like (y positions of the lines)
+- xmin : scalar, optional (left limit for the line)
+- xmax : scalar, optional (right limit for the line)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.hlines()</cite>, such as:
+- color : str, optional (line color)
+- linewidth : float, optional (thickness of the line)
+- linestyle : {‘-’, ‘–’, ‘-.’, ‘:’}, optional (line style)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.imshow">
+<span class="sig-name descname"><span class="pre">imshow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.imshow" title="Link to this definition">¶</a></dt>
+<dd><p>Displays an image on the plot.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>The image data (e.g., a 2D array representing pixel intensities).</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.imshow()</cite>, such as:
+- cmap : str, optional (colormap for displaying the image)
+- interpolation : str, optional (method for interpolation, e.g., ‘nearest’, ‘bilinear’)
+- alpha : float, optional (transparency, from 0 to 1)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.invert_x">
+<span class="sig-name descname"><span class="pre">invert_x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.invert_x" title="Link to this definition">¶</a></dt>
+<dd><p>Inverts the x-axis.</p>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.invert_y">
+<span class="sig-name descname"><span class="pre">invert_y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.invert_y" title="Link to this definition">¶</a></dt>
+<dd><p>Inverts the y-axis.</p>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.legend">
+<span class="sig-name descname"><span class="pre">legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.legend" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a legend to the plot.</p>
+<p>Parameters:
+kwargs : dict, optional</p>
+<blockquote>
+<div><p>Additional keyword arguments passed to <cite>ax.legend()</cite>, such as:
+- loc : str or int, optional (location of the legend, e.g., ‘best’, ‘upper left’, 0)
+- fontsize : int or float, optional
+- title : str, optional (title of the legend)
+- shadow : bool, optional (whether to add shadow)
+- bbox_to_anchor : tuple, optional (to specify a custom position for the legend)</p>
+</div></blockquote>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.plot" title="Link to this definition">¶</a></dt>
+<dd><p>Plots data on the axis.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>The data to plot. The first element is typically the x-data, and the second is the y-data.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.plot()</cite>, such as:
+- label : str, optional (label for the plot, used in legend)
+- linestyle : {‘-’, ‘–’, ‘-.’, ‘:’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)
+- marker : {‘o’, ‘x’, ‘s’, ‘^’, etc.}, optional (marker style)
+- linewidth : float, optional (line thickness)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.save" title="Link to this definition">¶</a></dt>
+<dd><p>Saves the figure to a file.</p>
+<p>Parameters:
+path : str</p>
+<blockquote>
+<div><p>The file path to save the figure.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>fig.savefig()</cite>, such as:
+- dpi : int, optional (dots per inch for image resolution)
+- bbox_inches : str or ‘tight’, optional (to adjust bounding box)
+- transparent : bool, optional (if True, the background is transparent)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.scatter">
+<span class="sig-name descname"><span class="pre">scatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.scatter" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a scatter plot.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>The data to plot as scatter. The first element is typically the x-data, and the second is the y-data.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.scatter()</cite>, such as:
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)
+- marker : {‘o’, ‘x’, ‘s’, ‘^’, etc.}, optional (marker style)
+- s : scalar or array-like, optional (size of markers)
+- alpha : float, optional (transparency, from 0 to 1)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.set_title">
+<span class="sig-name descname"><span class="pre">set_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.set_title" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the title of the plot.</p>
+<p>Parameters:
+txt : str</p>
+<blockquote>
+<div><p>The title text.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.set_title()</cite>, such as:
+- fontsize : int or float, optional
+- fontweight : {‘normal’, ‘bold’, ‘heavy’, ‘light’, ‘ultrabold’, ‘ultralight’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)
+- pad : float, optional (distance from the top of the axes)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.set_xlim">
+<span class="sig-name descname"><span class="pre">set_xlim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.set_xlim" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the limits for the x-axis.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>The limits to set as (min, max).</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.set_xlim()</cite>, such as:
+- xmin : float, optional (minimum limit for x-axis)
+- xmax : float, optional (maximum limit for x-axis)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.set_xticks">
+<span class="sig-name descname"><span class="pre">set_xticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.set_xticks" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the ticks on the x-axis.</p>
+<p>Parameters:
+ticks : list</p>
+<blockquote>
+<div><p>A list of positions where ticks should appear on the x-axis.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.set_xticks()</cite>, such as:
+- minor : bool, optional (if True, the minor ticks are set instead of the major ones)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.set_ylim">
+<span class="sig-name descname"><span class="pre">set_ylim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.set_ylim" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the limits for the y-axis.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>The limits to set as (min, max).</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.set_ylim()</cite>, such as:
+- ymin : float, optional (minimum limit for y-axis)
+- ymax : float, optional (maximum limit for y-axis)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.set_yticks">
+<span class="sig-name descname"><span class="pre">set_yticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.set_yticks" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the ticks on the y-axis.</p>
+<p>Parameters:
+ticks : list</p>
+<blockquote>
+<div><p>A list of positions where ticks should appear on the y-axis.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.set_yticks()</cite>, such as:
+- minor : bool, optional (if True, the minor ticks are set instead of the major ones)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.show" title="Link to this definition">¶</a></dt>
+<dd><p>Displays the plot.</p>
+<p>Parameters:
+clear : bool, optional</p>
+<blockquote>
+<div><p>If True, the previous output is cleared before showing the plot.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.style">
+<span class="sig-name descname"><span class="pre">style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'seaborn-v0_8-whitegrid'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.style" title="Link to this definition">¶</a></dt>
+<dd><p>Applies a matplotlib style to the plot.</p>
+<p>Parameters:
+style_name : str, optional, default=’seaborn-v0_8-whitegrid’</p>
+<blockquote>
+<div><p>The style to apply. For example, ‘seaborn-darkgrid’, ‘ggplot’, etc.</p>
+</div></blockquote>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.suptitle">
+<span class="sig-name descname"><span class="pre">suptitle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.suptitle" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the title for the entire figure.</p>
+<p>Parameters:
+txt : str</p>
+<blockquote>
+<div><p>The title text.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>fig.suptitle()</cite>, such as:
+- fontsize : int or float, optional (size of the title text)
+- fontweight : {‘normal’, ‘bold’, ‘heavy’, ‘light’, ‘ultrabold’, ‘ultralight’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.tight_layout">
+<span class="sig-name descname"><span class="pre">tight_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.tight_layout" title="Link to this definition">¶</a></dt>
+<dd><p>Adjusts the layout to prevent overlap of plot elements.</p>
+<p>Parameters:
+kwargs : dict, optional</p>
+<blockquote>
+<div><p>Additional keyword arguments passed to <cite>fig.tight_layout()</cite>, such as:
+- pad : float, optional (padding between plot elements)
+- h_pad : float, optional (height padding)
+- w_pad : float, optional (width padding)
+- rect : tuple, optional (the area to which the layout is confined, e.g., (left, bottom, right, top))</p>
+</div></blockquote>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.twinx">
+<span class="sig-name descname"><span class="pre">twinx</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.twinx" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a twin axis sharing the same x-axis but different y-axis.</p>
+<p>Returns:
+Viz</p>
+<blockquote>
+<div><p>A new Viz object with the twin axis.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.vlines">
+<span class="sig-name descname"><span class="pre">vlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.vlines" title="Link to this definition">¶</a></dt>
+<dd><p>Draws vertical lines across the plot.</p>
+<p>Parameters:
+args : tuple</p>
+<blockquote>
+<div><p>Arguments passed to <cite>ax.vlines()</cite>, typically:
+- x : scalar or array-like (x positions of the lines)
+- ymin : scalar, optional (bottom limit for the line)
+- ymax : scalar, optional (top limit for the line)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.vlines()</cite>, such as:
+- color : str, optional (line color)
+- linewidth : float, optional (thickness of the line)
+- linestyle : {‘-’, ‘–’, ‘-.’, ‘:’}, optional (line style)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.xlabel">
+<span class="sig-name descname"><span class="pre">xlabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.xlabel" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the label for the x-axis.</p>
+<p>Parameters:
+txt : str</p>
+<blockquote>
+<div><p>The label text for the x-axis.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.set_xlabel()</cite>, such as:
+- fontsize : int or float, optional
+- fontweight : {‘normal’, ‘bold’, ‘heavy’, ‘light’, ‘ultrabold’, ‘ultralight’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mplviz.Viz.ylabel">
+<span class="sig-name descname"><span class="pre">ylabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mplviz.Viz.ylabel" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the label for the y-axis.</p>
+<p>Parameters:
+txt : str</p>
+<blockquote>
+<div><p>The label text for the y-axis.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kwargs<span class="classifier">dict, optional</span></dt><dd><p>Additional keyword arguments passed to <cite>ax.set_ylabel()</cite>, such as:
+- fontsize : int or float, optional
+- fontweight : {‘normal’, ‘bold’, ‘heavy’, ‘light’, ‘ultrabold’, ‘ultralight’}, optional
+- color : str, optional (e.g., ‘red’, ‘blue’, etc.)</p>
+</dd>
+</dl>
+<p>Returns:
+self : Viz</p>
+<blockquote>
+<div><p>The Viz object itself, allowing for method chaining.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -282,7 +907,43 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">mplviz package</a><ul>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-mplviz">Module contents</a><ul>
+<li><a class="reference internal" href="#mplviz.Viz"><code class="docutils literal notranslate"><span class="pre">Viz</span></code></a><ul>
+<li><a class="reference internal" href="#mplviz.Viz.add_subplot"><code class="docutils literal notranslate"><span class="pre">Viz.add_subplot()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.annotate"><code class="docutils literal notranslate"><span class="pre">Viz.annotate()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.aspect"><code class="docutils literal notranslate"><span class="pre">Viz.aspect()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.bar"><code class="docutils literal notranslate"><span class="pre">Viz.bar()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.clear"><code class="docutils literal notranslate"><span class="pre">Viz.clear()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.close"><code class="docutils literal notranslate"><span class="pre">Viz.close()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.combine_viz"><code class="docutils literal notranslate"><span class="pre">Viz.combine_viz()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.contour"><code class="docutils literal notranslate"><span class="pre">Viz.contour()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.figsize"><code class="docutils literal notranslate"><span class="pre">Viz.figsize()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.grid"><code class="docutils literal notranslate"><span class="pre">Viz.grid()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.hlines"><code class="docutils literal notranslate"><span class="pre">Viz.hlines()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.imshow"><code class="docutils literal notranslate"><span class="pre">Viz.imshow()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.invert_x"><code class="docutils literal notranslate"><span class="pre">Viz.invert_x()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.invert_y"><code class="docutils literal notranslate"><span class="pre">Viz.invert_y()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.legend"><code class="docutils literal notranslate"><span class="pre">Viz.legend()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.plot"><code class="docutils literal notranslate"><span class="pre">Viz.plot()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.save"><code class="docutils literal notranslate"><span class="pre">Viz.save()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.scatter"><code class="docutils literal notranslate"><span class="pre">Viz.scatter()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.set_title"><code class="docutils literal notranslate"><span class="pre">Viz.set_title()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.set_xlim"><code class="docutils literal notranslate"><span class="pre">Viz.set_xlim()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.set_xticks"><code class="docutils literal notranslate"><span class="pre">Viz.set_xticks()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.set_ylim"><code class="docutils literal notranslate"><span class="pre">Viz.set_ylim()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.set_yticks"><code class="docutils literal notranslate"><span class="pre">Viz.set_yticks()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.show"><code class="docutils literal notranslate"><span class="pre">Viz.show()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.style"><code class="docutils literal notranslate"><span class="pre">Viz.style()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.suptitle"><code class="docutils literal notranslate"><span class="pre">Viz.suptitle()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.tight_layout"><code class="docutils literal notranslate"><span class="pre">Viz.tight_layout()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.twinx"><code class="docutils literal notranslate"><span class="pre">Viz.twinx()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.vlines"><code class="docutils literal notranslate"><span class="pre">Viz.vlines()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.xlabel"><code class="docutils literal notranslate"><span class="pre">Viz.xlabel()</span></code></a></li>
+<li><a class="reference internal" href="#mplviz.Viz.ylabel"><code class="docutils literal notranslate"><span class="pre">Viz.ylabel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
