@@ -1,4 +1,4 @@
-[![Tests](https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml)
+![Tests](https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml/badge.svg?branch=main)
 [![PyPI Version](https://img.shields.io/pypi/v/mplviz.svg)](https://pypi.org/project/mplviz/)
 [![Documentation Status](https://readthedocs.org/projects/mplviz/badge/?version=latest)](https://mplviz.readthedocs.io/en/latest/?badge=latest)
 [![Python Versions](https://img.shields.io/pypi/pyversions/mplviz.svg)](https://pypi.org/project/mplviz/)
