@@ -1,3 +1,4 @@
+
 mplviz – A Fluent API Wrapper for Matplotlib
 ============================================
 
@@ -12,8 +13,4 @@ mplviz – A Fluent API Wrapper for Matplotlib
    source/install
    source/api/api
    source/footer
-
-
-
-
 

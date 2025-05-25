@@ -27,7 +27,6 @@ class Viz:
         """
         Initializes the Viz object with a given axis and optional figure.
 
-
         Parameters
         ----------
         ax : matplotlib.axes.Axes
@@ -41,7 +40,6 @@ class Viz:
         self.fig = fig or ax.figure
 
     def set_title(self, txt, **kwargs):     
-        
         """
         Sets the title of the plot.
 
