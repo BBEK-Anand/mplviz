@@ -45,6 +45,15 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">✨ Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#supported-plot-types">📊 Supported Plot Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#method-overview">🛠️ Method Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-plotting">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layout-and-saving">Layout and Saving</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#combine-multiple-plots">🔄 Combine Multiple Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#customization-and-style">⚙️ Customization and Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">🚀 Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html#installation">📦 Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html#usage">🧑‍💻 Usage</a></li>
@@ -52,6 +61,10 @@
 <li class="toctree-l1"><a class="reference internal" href="footer.html">🧪 Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="footer.html#license">📄 License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="footer.html#author">👤 Author</a></li>
+<li class="toctree-l1"><a class="reference internal" href="footer.html#contributing">🤝 Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="footer.html#id1">📄 License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="footer.html#questions">🙋‍♂️ Questions?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="footer.html#future-enhancements">📍 Future Enhancements</a></li>
 </ul>
 
         </div>
@@ -88,6 +101,79 @@
 <li><p>Lightweight wrapper that keeps full access to underlying matplotlib functionality.</p></li>
 <li><p>Easy to install via PyPI or from source.</p></li>
 </ul>
+<ul class="simple">
+<li><p><strong>Method Chaining</strong>: Easily create readable and customizable plots with fluent syntax.</p></li>
+<li><p><strong>Support for Multiple Plot Types</strong>: Create line, scatter, bar charts, and more.</p></li>
+<li><p><strong>Grid and Axis Customization</strong>: Customize axis labels, grid visibility, and other settings.</p></li>
+<li><p><strong>Flexible Subplot Layout</strong>: Seamlessly create grid-based layouts with subplots.</p></li>
+<li><p><strong>Save and Export</strong>: Save plots to images or PDFs.</p></li>
+<li><p><strong>Reusability &amp; Extensibility</strong>: Define reusable styles and settings for plots.</p></li>
+</ul>
+</section>
+<section id="supported-plot-types">
+<h1>📊 Supported Plot Types<a class="headerlink" href="#supported-plot-types" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><strong>Line Plot</strong>: <code class="docutils literal notranslate"><span class="pre">viz.plot()</span></code></p></li>
+<li><p><strong>Scatter Plot</strong>: <code class="docutils literal notranslate"><span class="pre">viz.scatter()</span></code></p></li>
+<li><p><strong>Bar Chart</strong>: <code class="docutils literal notranslate"><span class="pre">viz.bar()</span></code></p></li>
+<li><p><strong>Contour Plot</strong>: <code class="docutils literal notranslate"><span class="pre">viz.contour()</span></code></p></li>
+<li><p><strong>Heatmaps/Images</strong>: <code class="docutils literal notranslate"><span class="pre">viz.imshow()</span></code></p></li>
+<li><p><strong>Annotations</strong>: <code class="docutils literal notranslate"><span class="pre">viz.annotate()</span></code></p></li>
+<li><p><strong>Axis Customization</strong>: <code class="docutils literal notranslate"><span class="pre">viz.grid()</span></code>, <code class="docutils literal notranslate"><span class="pre">viz.set_xlim()</span></code>, <code class="docutils literal notranslate"><span class="pre">viz.set_ylim()</span></code></p></li>
+<li><p><strong>Subplots Layout</strong>: <code class="docutils literal notranslate"><span class="pre">viz.add_subplot()</span></code></p></li>
+<li><p><strong>Multiple Y-Axes</strong>: <code class="docutils literal notranslate"><span class="pre">viz.twinx()</span></code></p></li>
+</ul>
+</section>
+<section id="method-overview">
+<h1>🛠️ Method Overview<a class="headerlink" href="#method-overview" title="Link to this heading"></a></h1>
+<section id="basic-plotting">
+<h2>Basic Plotting<a class="headerlink" href="#basic-plotting" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.plot(x,</span> <span class="pre">y,</span> <span class="pre">**kwargs)</span></code> - Create a line plot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.scatter(x,</span> <span class="pre">y,</span> <span class="pre">**kwargs)</span></code> - Create a scatter plot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.bar(x,</span> <span class="pre">y,</span> <span class="pre">**kwargs)</span></code> - Create a bar chart.</p></li>
+</ul>
+</section>
+<section id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.set_title(title,</span> <span class="pre">**kwargs)</span></code> - Set the plot title.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.xlabel(text,</span> <span class="pre">**kwargs)</span></code> - Set the x-axis label.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.ylabel(text,</span> <span class="pre">**kwargs)</span></code> - Set the y-axis label.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.grid(flag=True,</span> <span class="pre">**kwargs)</span></code> - Toggle grid lines on or off.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.legend(**kwargs)</span></code> - Show the legend.</p></li>
+</ul>
+</section>
+<section id="layout-and-saving">
+<h2>Layout and Saving<a class="headerlink" href="#layout-and-saving" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.show(clear=False)</span></code> - Display the plot in the notebook.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.tight_layout(**kwargs)</span></code> - Adjust subplot layout to prevent overlap.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viz.save(path,</span> <span class="pre">**kwargs)</span></code> - Save the plot to a file.</p></li>
+</ul>
+</section>
+</section>
+<section id="combine-multiple-plots">
+<h1>🔄 Combine Multiple Plots<a class="headerlink" href="#combine-multiple-plots" title="Link to this heading"></a></h1>
+<p>Combine multiple <code class="docutils literal notranslate"><span class="pre">Viz</span></code> objects into a single figure with subplots for side-by-side comparisons.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">viz1</span> <span class="o">=</span> <span class="n">Viz</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">viz2</span> <span class="o">=</span> <span class="n">Viz</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">viz1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Plot 1&quot;</span><span class="p">)</span>
+<span class="n">viz2</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Plot 2&quot;</span><span class="p">)</span>
+
+<span class="n">combined_viz</span> <span class="o">=</span> <span class="n">Viz</span><span class="o">.</span><span class="n">combine_viz</span><span class="p">([</span><span class="n">viz1</span><span class="p">,</span> <span class="n">viz2</span><span class="p">])</span>
+<span class="n">combined_viz</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="customization-and-style">
+<h1>⚙️ Customization and Style<a class="headerlink" href="#customization-and-style" title="Link to this heading"></a></h1>
+<p>You can apply predefined <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> styles using <code class="docutils literal notranslate"><span class="pre">plt.style</span></code> for quick and consistent styling:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="s1">&#39;seaborn-darkgrid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 
 

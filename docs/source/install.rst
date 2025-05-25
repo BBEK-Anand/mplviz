@@ -1,5 +1,5 @@
 🚀 Quick Start
---------------
+----------------
 
 Install the package via pip:
 
@@ -35,7 +35,7 @@ Install from Source:
 
 
 🧑‍💻 Usage
-----------
+----------------
 
 Creating a Basic Plot
 
