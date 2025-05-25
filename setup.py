@@ -11,7 +11,8 @@ setup(
     long_description_content_type='text/markdown',
     author='BBEK-Anand',
     url='https://github.com/BBEK-Anand/mplviz',
-    packages=find_packages(),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     include_package_data=True,
     install_requires=[
         'matplotlib>=3.0.0',
@@ -30,6 +31,5 @@ setup(
         'Framework :: Matplotlib',
     ],
     python_requires='>=3.7',
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    
 )
