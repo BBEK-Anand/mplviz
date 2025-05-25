@@ -1,7 +1,7 @@
 import pytest
 import matplotlib.pyplot as plt
 import numpy as np
-from mlpviz import Viz  # Replace with actual module name
+from mplviz import Viz  # Replace with actual module name
 
 @pytest.fixture
 def setup_viz():

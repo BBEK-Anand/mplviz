@@ -1,3 +1,11 @@
+[![Tests](https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml)
+[![PyPI Version](https://img.shields.io/pypi/v/mplviz.svg)](https://pypi.org/project/mplviz/)
+[![Documentation Status](https://readthedocs.org/projects/mplviz/badge/?version=latest)](https://mplviz.readthedocs.io/en/latest/?badge=latest)
+[![Python Versions](https://img.shields.io/pypi/pyversions/mplviz.svg)](https://pypi.org/project/mplviz/)
+[![Matplotlib](https://img.shields.io/librariesio/release/pypi/matplotlib.svg)](https://pypi.org/project/matplotlib/)
+
+
+
 # Viz - A Fluent API Wrapper for Matplotlib
 
 `Viz` is a user-friendly, fluent API wrapper for `matplotlib` designed to streamline the process of creating, customizing, and managing plots in Python. By supporting method chaining and reusable functions, `Viz` makes complex plotting workflows easier to handle, while still offering complete control over `matplotlib` functionalities.
