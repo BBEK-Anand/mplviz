@@ -10,7 +10,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Python 3.8 with matplotlib 3.6 to 3.9
           - python-version: "3.8"
             matplotlib-version: "3.6"
           - python-version: "3.8"

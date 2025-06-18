@@ -1,15 +1,12 @@
 ![Tests](https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml/badge.svg?branch=main)
+![Tested](https://img.shields.io/badge/Tested-Py38--310_/_MPL_3.6--3.10-green)
 [![PyPI Version](https://img.shields.io/pypi/v/mplviz.svg)](https://pypi.org/project/mplviz/)
-[![Documentation Status](https://readthedocs.org/projects/mplviz/badge/?version=latest)](https://mplviz.readthedocs.io/en/latest/?badge=latest)
-[![Python Versions](https://img.shields.io/pypi/pyversions/mplviz.svg)](https://pypi.org/project/mplviz/)
+[![Docs (latest)](https://readthedocs.org/projects/mplviz/badge/?version=latest)](https://mplviz.readthedocs.io/en/latest/)
 [![Matplotlib](https://img.shields.io/librariesio/release/pypi/matplotlib.svg)](https://pypi.org/project/matplotlib/)
+[![Lint & Format](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml)
+
 
 # mplviz
-
-[![Tests](https://github.com/BBEK-Anand/mplviz/actions/workflows/test.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/test.yml)
-[![Lint & Format](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml)
-[![Docs Build](https://github.com/BBEK-Anand/mplviz/actions/workflows/docs.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/docs.yml)
-
 
 
 # Viz - A Fluent API Wrapper for Matplotlib

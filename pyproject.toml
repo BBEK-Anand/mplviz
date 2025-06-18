@@ -13,7 +13,7 @@ authors = [
 ]
 license = { text = "MIT" }
 dependencies = [
-  "matplotlib>=3.0.0",
+  "matplotlib>=3.6.0",
   "numpy>=1.18.0",
   "ipython>=7.0.0"
 ]

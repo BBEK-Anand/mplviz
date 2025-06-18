@@ -15,7 +15,7 @@ setup(
     package_dir={"": "src"},
     include_package_data=True,
     install_requires=[
-        'matplotlib>=3.0.0',
+        'matplotlib>=3.6.0',
         'numpy>=1.18.0',
         'ipython>=7.0.0'
     ],
@@ -31,5 +31,5 @@ setup(
         'Framework :: Matplotlib',
     ],
     python_requires='>=3.7',
-    
+
 )
