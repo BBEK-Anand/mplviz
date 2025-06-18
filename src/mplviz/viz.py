@@ -6,9 +6,11 @@ matplotlib-based visualizations with a consistent interface. Includes
 plotting methods (e.g., bar, line, scatter), layout utilities, and
 tools for combining multiple plots into a single figure.
 """
+
 from IPython.display import display, clear_output
 import matplotlib.pyplot as plt
 import numpy as np
+
 
 class _VizCore:
     def save(self, path, **kwargs):
@@ -115,7 +117,7 @@ class _VizCore:
             nrows = int(np.ceil(total_plots / ncols))  # Make sure all plots fit
 
         # Create a new figure and subplot grid
-        fig, axs = plt.subplots(nrows, ncols, figsize=(ncols*5, nrows*5))
+        fig, axs = plt.subplots(nrows, ncols, figsize=(ncols * 5, nrows * 5))
 
         # Flatten the axes for easy iteration (if it's a multi-dimensional grid)
         axs = axs.flatten() if nrows * ncols > 1 else [axs]
@@ -137,20 +139,27 @@ class _VizCore:
             gridlines = xgridlines + ygridlines
 
             if any(line.get_visible() for line in gridlines):
-                gridline = next((line for line in gridlines if line.get_visible()), None)
+                gridline = next(
+                    (line for line in gridlines if line.get_visible()), None
+                )
                 if gridline:
-                    ax.grid(True,
-                            linestyle=gridline.get_linestyle(),
-                            color=gridline.get_color(),
-                            linewidth=gridline.get_linewidth())
+                    ax.grid(
+                        True,
+                        linestyle=gridline.get_linestyle(),
+                        color=gridline.get_color(),
+                        linewidth=gridline.get_linewidth(),
+                    )
             else:
                 ax.grid(False)
             # Copy other properties like lines, scatter, etc., based on what the viz object has
             for line in viz.ax.lines:
                 ax.plot(line.get_xdata(), line.get_ydata(), label=line.get_label())
             for scatter in viz.ax.collections:
-                ax.scatter(scatter.get_offsets()[:, 0],
-                           scatter.get_offsets()[:, 1], label=scatter.get_label())
+                ax.scatter(
+                    scatter.get_offsets()[:, 0],
+                    scatter.get_offsets()[:, 1],
+                    label=scatter.get_label(),
+                )
 
         # Adjust layout to avoid overlap
         # fig.tight_layout()
@@ -185,9 +194,11 @@ class _VizCore:
             The method of the underlying axis for the given attribute.
         """
         if hasattr(self.ax, attr):
+
             def method(*args, **kwargs):
                 result = getattr(self.ax, attr)(*args, **kwargs)
                 return self if result is None else result
+
             return method
         raise AttributeError(f"'PlotWrapper' has no attribute '{attr}'")
 
@@ -226,6 +237,7 @@ class _VizCore:
             The item from the axis corresponding to the key.
         """
         return self.ax[key]
+
 
 class _LayoutMixin:
     def set_title(self, txt, **kwargs):
@@ -512,7 +524,7 @@ class _LayoutMixin:
         self.ax.annotate(*args, **kwargs)
         return self
 
-    def style(self, style_name='seaborn-v0_8-whitegrid'):
+    def style(self, style_name="seaborn-v0_8-whitegrid"):
         """
         Applies a matplotlib style to the plot.
 
@@ -546,7 +558,7 @@ class _LayoutMixin:
         self.fig.set_size_inches(*size, forward=True)
         return self
 
-    def aspect(self, value='auto'):
+    def aspect(self, value="auto"):
         """
         Sets the aspect ratio of the plot.
 
@@ -566,6 +578,7 @@ class _LayoutMixin:
         """
         self.ax.set_aspect(value)
         return self
+
 
 class _PlotMixin:
 
@@ -732,6 +745,7 @@ class _PlotMixin:
         ax = self.fig.add_subplot(*args, **kwargs)
         return Viz(ax, self.fig)
 
+
 class Viz(_PlotMixin, _LayoutMixin, _VizCore):
     """
     Viz class for plotting on a matplotlib axis.
@@ -748,6 +762,7 @@ class Viz(_PlotMixin, _LayoutMixin, _VizCore):
     add_subplot(*args, **kwargs)
         Adds a new subplot to the figure.
     """
+
     def __init__(self, ax=None, fig=None):
         """
         Initializes the Viz object with a given axis and optional figure.
