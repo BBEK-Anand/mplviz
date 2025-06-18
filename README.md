@@ -1,10 +1,10 @@
+<!-- CI Badges -->
 ![Tests](https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml/badge.svg?branch=main)
+[![Lint & Format](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml)
 ![Tested](https://img.shields.io/badge/Tested-Py38--310_/_MPL_3.6--3.10-green)
 [![PyPI Version](https://img.shields.io/pypi/v/mplviz.svg)](https://pypi.org/project/mplviz/)
+[![Dependencies Status](https://img.shields.io/librariesio/github/BBEK-Anand/mplviz)](https://libraries.io/github/BBEK-Anand/mplviz)
 [![Docs (latest)](https://readthedocs.org/projects/mplviz/badge/?version=latest)](https://mplviz.readthedocs.io/en/latest/)
-[![Matplotlib](https://img.shields.io/librariesio/release/pypi/matplotlib.svg)](https://pypi.org/project/matplotlib/)
-[![Lint & Format](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml)
-
 
 # mplviz
 
