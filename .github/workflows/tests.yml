@@ -16,8 +16,6 @@ jobs:
           - python-version: "3.8"
             matplotlib-version: "3.7"
           - python-version: "3.9"
-            matplotlib-version: "3.6"
-          - python-version: "3.9"
             matplotlib-version: "3.7"
           - python-version: "3.9"
             matplotlib-version: "3.8"
