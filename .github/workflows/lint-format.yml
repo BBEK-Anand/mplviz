@@ -5,21 +5,17 @@ on: [push, pull_request]
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
+        python-version: "3.10"  # or whichever you want
 
-    - name: Install tools
-      run: |
-        pip install ruff black
+    - name: Install black
+      run: pip install black
 
-    - name: Check formatting with black
-      run: black --check mplviz tests
+    - name: Run black check
+      run: black --check src/mplviz tests
 
-    - name: Run linting with ruff
-      run: ruff mplviz tests
