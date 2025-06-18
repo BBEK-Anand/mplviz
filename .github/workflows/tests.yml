@@ -1,28 +1,29 @@
 name: Tests
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, 3.10]
+        matplotlib-version: [3.6, 3.7, 3.8, 3.9, 3.10]
+
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set up Python
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'  # or 3.10 or whatever you support
+        python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install "matplotlib==${{ matrix.matplotlib-version }}.*"
         pip install .
-        pip install -r docs/requirements.txt
         pip install pytest
 
     - name: Run tests

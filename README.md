@@ -4,6 +4,12 @@
 [![Python Versions](https://img.shields.io/pypi/pyversions/mplviz.svg)](https://pypi.org/project/mplviz/)
 [![Matplotlib](https://img.shields.io/librariesio/release/pypi/matplotlib.svg)](https://pypi.org/project/matplotlib/)
 
+# mplviz
+
+[![Tests](https://github.com/BBEK-Anand/mplviz/actions/workflows/test.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/test.yml)
+[![Lint & Format](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml)
+[![Docs Build](https://github.com/BBEK-Anand/mplviz/actions/workflows/docs.yml/badge.svg)](https://github.com/BBEK-Anand/mplviz/actions/workflows/docs.yml)
+
 
 
 # Viz - A Fluent API Wrapper for Matplotlib

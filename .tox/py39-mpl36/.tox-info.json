@@ -1,6 +1,0 @@
-{
-  "ToxEnv": {
-    "name": "py39-mpl36",
-    "type": "VirtualEnvRunner"
-  }
-}
