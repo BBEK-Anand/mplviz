@@ -92,9 +92,11 @@
 <span class="sd">plotting methods (e.g., bar, line, scatter), layout utilities, and</span>
 <span class="sd">tools for combining multiple plots into a single figure.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
 
 <span class="k">class</span><span class="w"> </span><span class="nc">_VizCore</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -201,7 +203,7 @@
             <span class="n">nrows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">total_plots</span> <span class="o">/</span> <span class="n">ncols</span><span class="p">))</span>  <span class="c1"># Make sure all plots fit</span>
 
         <span class="c1"># Create a new figure and subplot grid</span>
-        <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">ncols</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="n">nrows</span><span class="o">*</span><span class="mi">5</span><span class="p">))</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">ncols</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">*</span> <span class="mi">5</span><span class="p">))</span>
 
         <span class="c1"># Flatten the axes for easy iteration (if it&#39;s a multi-dimensional grid)</span>
         <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="k">if</span> <span class="n">nrows</span> <span class="o">*</span> <span class="n">ncols</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">[</span><span class="n">axs</span><span class="p">]</span>
@@ -223,20 +225,27 @@
             <span class="n">gridlines</span> <span class="o">=</span> <span class="n">xgridlines</span> <span class="o">+</span> <span class="n">ygridlines</span>
 
             <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">get_visible</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">gridlines</span><span class="p">):</span>
-                <span class="n">gridline</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">gridlines</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">get_visible</span><span class="p">()),</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="n">gridline</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">gridlines</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">get_visible</span><span class="p">()),</span> <span class="kc">None</span>
+                <span class="p">)</span>
                 <span class="k">if</span> <span class="n">gridline</span><span class="p">:</span>
-                    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span>
-                            <span class="n">linestyle</span><span class="o">=</span><span class="n">gridline</span><span class="o">.</span><span class="n">get_linestyle</span><span class="p">(),</span>
-                            <span class="n">color</span><span class="o">=</span><span class="n">gridline</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span>
-                            <span class="n">linewidth</span><span class="o">=</span><span class="n">gridline</span><span class="o">.</span><span class="n">get_linewidth</span><span class="p">())</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
+                        <span class="kc">True</span><span class="p">,</span>
+                        <span class="n">linestyle</span><span class="o">=</span><span class="n">gridline</span><span class="o">.</span><span class="n">get_linestyle</span><span class="p">(),</span>
+                        <span class="n">color</span><span class="o">=</span><span class="n">gridline</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span>
+                        <span class="n">linewidth</span><span class="o">=</span><span class="n">gridline</span><span class="o">.</span><span class="n">get_linewidth</span><span class="p">(),</span>
+                    <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
             <span class="c1"># Copy other properties like lines, scatter, etc., based on what the viz object has</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">viz</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">lines</span><span class="p">:</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">get_xdata</span><span class="p">(),</span> <span class="n">line</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">get_label</span><span class="p">())</span>
             <span class="k">for</span> <span class="n">scatter</span> <span class="ow">in</span> <span class="n">viz</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">collections</span><span class="p">:</span>
-                <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">scatter</span><span class="o">.</span><span class="n">get_offsets</span><span class="p">()[:,</span> <span class="mi">0</span><span class="p">],</span>
-                           <span class="n">scatter</span><span class="o">.</span><span class="n">get_offsets</span><span class="p">()[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">scatter</span><span class="o">.</span><span class="n">get_label</span><span class="p">())</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+                    <span class="n">scatter</span><span class="o">.</span><span class="n">get_offsets</span><span class="p">()[:,</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="n">scatter</span><span class="o">.</span><span class="n">get_offsets</span><span class="p">()[:,</span> <span class="mi">1</span><span class="p">],</span>
+                    <span class="n">label</span><span class="o">=</span><span class="n">scatter</span><span class="o">.</span><span class="n">get_label</span><span class="p">(),</span>
+                <span class="p">)</span>
 
         <span class="c1"># Adjust layout to avoid overlap</span>
         <span class="c1"># fig.tight_layout()</span>
@@ -271,9 +280,11 @@
 <span class="sd">            The method of the underlying axis for the given attribute.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+
             <span class="k">def</span><span class="w"> </span><span class="nf">method</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="p">,</span> <span class="n">attr</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="k">return</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">result</span>
+
             <span class="k">return</span> <span class="n">method</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;PlotWrapper&#39; has no attribute &#39;</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
 
@@ -312,6 +323,7 @@
 <span class="sd">            The item from the axis corresponding to the key.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
 
 <span class="k">class</span><span class="w"> </span><span class="nc">_LayoutMixin</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">set_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -598,7 +610,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style_name</span><span class="o">=</span><span class="s1">&#39;seaborn-v0_8-whitegrid&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style_name</span><span class="o">=</span><span class="s2">&quot;seaborn-v0_8-whitegrid&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Applies a matplotlib style to the plot.</span>
 
@@ -632,7 +644,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="o">*</span><span class="n">size</span><span class="p">,</span> <span class="n">forward</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">aspect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aspect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the aspect ratio of the plot.</span>
 
@@ -652,6 +664,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
+
 
 <span class="k">class</span><span class="w"> </span><span class="nc">_PlotMixin</span><span class="p">:</span>
 
@@ -818,6 +831,7 @@
         <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">Viz</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fig</span><span class="p">)</span>
 
+
 <div class="viewcode-block" id="Viz">
 <a class="viewcode-back" href="../source/api/viz.html#viz.Viz">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Viz</span><span class="p">(</span><span class="n">_PlotMixin</span><span class="p">,</span> <span class="n">_LayoutMixin</span><span class="p">,</span> <span class="n">_VizCore</span><span class="p">):</span>
@@ -836,6 +850,7 @@
 <span class="sd">    add_subplot(*args, **kwargs)</span>
 <span class="sd">        Adds a new subplot to the figure.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the Viz object with a given axis and optional figure.</span>
