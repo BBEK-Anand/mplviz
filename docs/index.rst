@@ -1,22 +1,24 @@
 .. image:: https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml/badge.svg?branch=main
-   :target: https://github.com/BBEK-Anand/mplviz/actions/workflows/tests.yml
-   :alt: Test Status
+   :alt: Tests
+
+.. image:: https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml/badge.svg
+   :target: https://github.com/BBEK-Anand/mplviz/actions/workflows/lint-format.yml
+   :alt: Lint & Format
+
+.. image:: https://img.shields.io/badge/Tested-Py38--310_/_MPL_3.6--3.10-green
+   :alt: Tested
 
 .. image:: https://img.shields.io/pypi/v/mplviz.svg
    :target: https://pypi.org/project/mplviz/
    :alt: PyPI Version
 
+.. image:: https://img.shields.io/librariesio/github/BBEK-Anand/mplviz
+   :target: https://libraries.io/github/BBEK-Anand/mplviz
+   :alt: Dependencies Status
+   
 .. image:: https://readthedocs.org/projects/mplviz/badge/?version=latest
-   :target: https://mplviz.readthedocs.io/en/latest/?badge=latest
+   :target: https://mplviz.readthedocs.io/en/latest/
    :alt: Documentation Status
-
-.. image:: https://img.shields.io/pypi/pyversions/mplviz.svg
-   :target: https://pypi.org/project/mplviz/
-   :alt: Supported Python Versions
-
-.. image:: https://img.shields.io/librariesio/release/pypi/matplotlib.svg
-   :target: https://pypi.org/project/matplotlib/
-   :alt: Matplotlib Version
 
 mplviz – A Fluent API Wrapper for Matplotlib
 ============================================
