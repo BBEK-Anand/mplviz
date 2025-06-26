@@ -15,10 +15,6 @@
 .. image:: https://img.shields.io/librariesio/github/BBEK-Anand/mplviz
    :target: https://libraries.io/github/BBEK-Anand/mplviz
    :alt: Dependencies Status
-   
-.. image:: https://readthedocs.org/projects/mplviz/badge/?version=latest
-   :target: https://mplviz.readthedocs.io/en/latest/
-   :alt: Documentation Status
 
 mplviz – A Fluent API Wrapper for Matplotlib
 ============================================
