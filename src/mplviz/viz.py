@@ -179,64 +179,7 @@ class _VizCore:
         plt.close(self.fig)
         return self
 
-    def __getattr__(self, attr):
-        """
-        Retrieves attributes of the underlying axis.
 
-        Parameters
-        ----------
-        attr : str
-            The name of the attribute to retrieve.
-
-        Returns
-        -------
-        method : function
-            The method of the underlying axis for the given attribute.
-        """
-        if hasattr(self.ax, attr):
-
-            def method(*args, **kwargs):
-                result = getattr(self.ax, attr)(*args, **kwargs)
-                return self if result is None else result
-
-            return method
-        raise AttributeError(f"'PlotWrapper' has no attribute '{attr}'")
-
-    def __dir__(self):
-        """
-        Returns a list of the attributes and methods available for the Viz
-        object.
-        """
-        return sorted(set(super().__dir__()) | set(dir(self.ax)))
-
-    def __enter__(self):
-        """
-        Initializes the Viz object for use in a context manager (e.g., with
-        `with` statement).
-        """
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        """
-        Displays the plot when exiting a context manager.
-        """
-        self.show()
-
-    def __getitem__(self, key):
-        """
-        Retrieves the item from the axis using the provided key.
-
-        Parameters
-        ----------
-        key : index or key
-            The key or index for the item.
-
-        Returns
-        -------
-        item : object
-            The item from the axis corresponding to the key.
-        """
-        return self.ax[key]
 
 
 class _LayoutMixin:
@@ -778,3 +721,62 @@ class Viz(_PlotMixin, _LayoutMixin, _VizCore):
             fig, ax = plt.subplots()
         self.ax = ax
         self.fig = fig or ax.figure
+
+    def __getattr__(self, attr):
+        """
+        Retrieves attributes of the underlying axis.
+
+        Parameters
+        ----------
+        attr : str
+            The name of the attribute to retrieve.
+
+        Returns
+        -------
+        method : function
+            The method of the underlying axis for the given attribute.
+        """
+        if hasattr(self.ax, attr):
+
+            def method(*args, **kwargs):
+                result = getattr(self.ax, attr)(*args, **kwargs)
+                return self if result is None else result
+
+            return method
+        raise AttributeError(f"'PlotWrapper' has no attribute '{attr}'")
+
+    def __dir__(self):
+        """
+        Returns a list of the attributes and methods available for the Viz
+        object.
+        """
+        return sorted(set(super().__dir__()) | set(dir(self.ax)))
+
+    def __enter__(self):
+        """
+        Initializes the Viz object for use in a context manager (e.g., with
+        `with` statement).
+        """
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """
+        Displays the plot when exiting a context manager.
+        """
+        self.show()
+
+    def __getitem__(self, key):
+        """
+        Retrieves the item from the axis using the provided key.
+
+        Parameters
+        ----------
+        key : index or key
+            The key or index for the item.
+
+        Returns
+        -------
+        item : object
+            The item from the axis corresponding to the key.
+        """
+        return self.ax[key]
